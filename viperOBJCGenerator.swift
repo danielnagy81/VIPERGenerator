@@ -67,7 +67,7 @@ class OBJCVIPERGenerator {
     }
     
     private func generateViewHeader() {
-        let viewHeaderFileContent = "\n#import <UIKit/UIKit.h>\n#import \"\(moduleName)Protocols.h\"\n\n@interface \(moduleName)View : UIViewController <\(moduleName)Protocol>\n\n@property (weak, nonatomic) id <\(moduleName)PresenterProtocol> presenter;\n\n@end\n"
+        let viewHeaderFileContent = "\n#import <UIKit/UIKit.h>\n#import \"\(moduleName)Protocols.h\"\n\n@interface \(moduleName)View : UIViewController <\(moduleName)ViewProtocol>\n\n@property (weak, nonatomic) id <\(moduleName)PresenterProtocol> presenter;\n\n@end\n"
         saveString(viewHeaderFileContent, withName: "View.h")
     }
     
@@ -83,7 +83,7 @@ class OBJCVIPERGenerator {
     }
     
     private func generatePresenterHeader() {
-        let presenterHeaderFileContent = "\n#import <Foundation/Foundation.h>\n\n#import \"\(moduleName)Interactor.h\"\n#import \"\(moduleName)View.h\"\n#import \"\(moduleName)Protocols.h\"\n\n@interface \(moduleName)Presenter : NSObject <\(moduleName)PresenterProtocol>\n\n@property (nonatomic) \(moduleName)Interactor *interactor;\n@property (weak, nonatomic) id <\(moduleName)Protocol> userInterface;\n@property (weak, nonatomic) id <NewModuleRouterProtocol> router;\n\n@end\n"
+        let presenterHeaderFileContent = "\n#import <Foundation/Foundation.h>\n\n#import \"\(moduleName)Interactor.h\"\n#import \"\(moduleName)View.h\"\n#import \"\(moduleName)Protocols.h\"\n\n@interface \(moduleName)Presenter : NSObject <\(moduleName)PresenterProtocol>\n\n@property (nonatomic) \(moduleName)Interactor *interactor;\n@property (weak, nonatomic) id <\(moduleName)ViewProtocol> userInterface;\n@property (weak, nonatomic) id <NewModuleRouterProtocol> router;\n\n@end\n"
         saveString(presenterHeaderFileContent, withName: "Presenter.h")
     }
     
