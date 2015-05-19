@@ -14,12 +14,12 @@
     self = [super init];
 
     if (self) {
-        [self setupPresenter];
+        [self setupRouter];
     }
     return self;
 }
 
-- (void)setupPresenter {
+- (void)setupRouter {
     _presenter = [[OBJCTestPresenter alloc] init];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     OBJCTestView *view = [storyboard instantiateViewControllerWithIdentifier:@"OBJCTestViewController"];
