@@ -19,7 +19,7 @@ class OBJCVIPERGenerator {
             fatalError("Too many/not enough arguments given!")
         }
         moduleName = Process.arguments[1]
-        moduleDirectory = fileManager.currentDirectoryPath + "/\(moduleName)"
+        moduleDirectory = fileManager.currentDirectoryPath + "/\(moduleName)" + "Module"
     }
     
     func generateVIPERModules() {
