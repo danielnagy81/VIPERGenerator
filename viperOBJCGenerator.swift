@@ -42,7 +42,7 @@ class OBJCVIPERGenerator {
     }
     
     private func generateProtocols() {
-        let protocolFileContent = "\n@protocol \(moduleName)ViewProtocol <NSObject>\n\n@end\n\n@protocol \(moduleName)PresenterProtocol <NSObject>\n\n@end\n\n@protocol NewModuleRouterProtocol <NSObject>\n\n@end\n"
+        let protocolFileContent = "\n@protocol \(moduleName)ViewProtocol <NSObject>\n\n@end\n\n@protocol \(moduleName)PresenterProtocol <NSObject>\n\n@end\n\n@protocol \(moduleName)RouterProtocol <NSObject>\n\n@end\n"
         saveString(protocolFileContent, withName: "Protocols.h")
     }
     
@@ -52,7 +52,7 @@ class OBJCVIPERGenerator {
     }
     
     private func generateRoutingHeaderFile() {
-        let routingHeaderContentFile  = "\n#import <UIKit/UIKit.h>\n#import \"\(moduleName)Protocols.h\"\n\n@interface \(moduleName)Routing : NSObject <NewModuleRouterProtocol>\n\n- (UIViewController *)viewController;\n\n@end"
+        let routingHeaderContentFile  = "\n#import <UIKit/UIKit.h>\n#import \"\(moduleName)Protocols.h\"\n\n@interface \(moduleName)Routing : NSObject <\(moduleName)RouterProtocol>\n\n- (UIViewController *)viewController;\n\n@end"
         saveString(routingHeaderContentFile, withName: "Routing.h")
     }
     
