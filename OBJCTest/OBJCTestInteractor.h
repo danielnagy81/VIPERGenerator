@@ -1,6 +1,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TestInteractor : NSObject
+@interface OBJCTestInteractor : NSObject
 
 @end

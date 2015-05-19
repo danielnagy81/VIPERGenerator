@@ -1,13 +1,13 @@
 
-#import "TestRouting.h"
-#import "TestPresenter.h"
-#import "TestView.h"
-#import "TestInteractor.h"
+#import "OBJCTestRouting.h"
+#import "OBJCTestPresenter.h"
+#import "OBJCTestView.h"
+#import "OBJCTestInteractor.h"
 
-@implementation TestRouting {
+@implementation OBJCTestRouting {
 
-    TestPresenter *_presenter;
-    TestView *_userInterface;
+    OBJCTestPresenter *_presenter;
+    OBJCTestView *_userInterface;
 }
 
 - (instancetype)init {
@@ -20,12 +20,12 @@
 }
 
 - (void)setupPresenter {
-    _presenter = [[TestPresenter alloc] init];
+    _presenter = [[OBJCTestPresenter alloc] init];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    TestView *view = [storyboard instantiateViewControllerWithIdentifier:@"TestViewController"];
+    OBJCTestView *view = [storyboard instantiateViewControllerWithIdentifier:@"OBJCTestViewController"];
     _userInterface = view;
     view.presenter = _presenter;
-    TestInteractor *interactor = [[TestInteractor alloc] init];
+    OBJCTestInteractor *interactor = [[OBJCTestInteractor alloc] init];
     _presenter.userInterface = view;
     _presenter.interactor = interactor;
     _presenter.router = self;
